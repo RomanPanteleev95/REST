@@ -1,4 +1,4 @@
-package hello;
+package jason.hello;
 
 import org.codehaus.jackson.annotate.JsonCreator;
 import org.codehaus.jackson.annotate.JsonProperty;

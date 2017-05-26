@@ -1,12 +1,9 @@
-package hello;
+package jason.hello;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.web.client.RestTemplate;
 
-@SpringBootApplication(scanBasePackages = "hello")
+@SpringBootApplication(scanBasePackages = "jason.hello")
 public class Application {
     public static void main(String[] args) {
         GreetingContainer.addToList(new Greeting(1, "Roman"));

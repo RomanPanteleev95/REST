@@ -1,4 +1,4 @@
-package HibernateTest;
+package hibernate.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -6,24 +6,19 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Person")
-public class Person {
+@Table(name = "default_wallpapers")
+public class Wallpaper {
     @Id
     @Column(name = "id")
     private int id;
 
     @Column(name = "name")
     private String name;
-    @Column(name = "surname")
-    private String surname;
 
-    public Person(int id, String name, String surname){
-        this.id = id;
-        this.name = name;
-        this.surname = surname;
-    }
+    @Column(name = "url")
+    private String url;
 
-    public Person(){
+    public Wallpaper(){
     }
 
     public int getId() {
@@ -34,8 +29,8 @@ public class Person {
         return name;
     }
 
-    public String getSurname() {
-        return surname;
+    public String getUrl() {
+        return url;
     }
 
     public void setId(int id) {
@@ -46,12 +41,12 @@ public class Person {
         this.name = name;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     @Override
     public String toString(){
-        return id + " " + name + " " + surname;
+        return id + " " + name + " " + url;
     }
 }
