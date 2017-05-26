@@ -19,13 +19,10 @@ public class Main {
         wallpaper.setUrl("//2");
 
         Transaction tx = session.beginTransaction();
-        session.save(wallpaper);
+        wallpaper = (Wallpaper)session.get(Wallpaper.class, 1);
+        session.delete(wallpaper);
         tx.commit();
 
-        List<Wallpaper> list = (List<Wallpaper>) session.createQuery("from hibernate.model.Wallpaper").list();
-
-        for (Wallpaper w : list)
-            System.out.println(w);
 
         session.close();
     }

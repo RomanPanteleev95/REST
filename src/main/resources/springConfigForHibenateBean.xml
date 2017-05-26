@@ -35,4 +35,11 @@
     <bean id="personDAO" class="hibernateBean.dao.WallpaperDaoImpl">
         <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
     </bean>
+
+    <!--<tx:annotation-driven transaction-manager="transactionManager" />-->
+    <!--<bean id="transactionManager"-->
+          <!--class="org.springframework.orm.hibernate4.HibernateTransactionManager">-->
+        <!--<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />-->
+    <!--</bean>-->
+
 </beans>

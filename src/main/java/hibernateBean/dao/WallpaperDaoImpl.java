@@ -5,9 +5,11 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Transactional(readOnly = false)
 public class WallpaperDaoImpl implements WallpaperDao{
 
     @Autowired
@@ -15,9 +17,9 @@ public class WallpaperDaoImpl implements WallpaperDao{
 
     public void save(Wallpaper wallpaper) {
         Session session = sessionFactory.openSession();
-        Transaction tx = session.beginTransaction();
+//        Transaction tx = session.beginTransaction();
         session.persist(wallpaper);
-        tx.commit();
+//        tx.commit();
         session.close();
     }
 
@@ -30,7 +32,7 @@ public class WallpaperDaoImpl implements WallpaperDao{
     public void remove(int id) {
         Session session = sessionFactory.openSession();
         Transaction tx = session.beginTransaction();
-        Wallpaper wallpaper = (Wallpaper) session.load(Wallpaper.class, id);
+        Wallpaper wallpaper = (Wallpaper) session.get(Wallpaper.class, id);
         if (wallpaper != null)
             session.delete(wallpaper);
         session.close();
